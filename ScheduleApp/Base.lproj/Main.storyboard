@@ -146,7 +146,7 @@
                                 <rect key="frame" x="136" y="397" width="120" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Add??"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BAy-qx-hw0"/>
