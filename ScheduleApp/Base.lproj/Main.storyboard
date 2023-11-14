@@ -88,10 +88,10 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vJ-ET-quW">
-                                <rect key="frame" x="169" y="103" width="56" height="35"/>
+                                <rect key="frame" x="165" y="99" width="65" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Sort"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Sort?"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Zo-lY-h4d"/>
