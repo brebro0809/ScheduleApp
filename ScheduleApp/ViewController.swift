@@ -7,14 +7,26 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class AppDefaults {
+    static var events = [Event]()
+}
 
-    var events = [Event]()
+class ViewController: UIViewController {
+    
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //pony
+        let decoder = JSONDecoder()
+        if let data = defaults.data(forKey: "myEvents") {
+            if let decoded = try? decoder.decode([Event].self, from: data){
+                print(AppDefaults.events)
+                AppDefaults.events = decoded
+                print(AppDefaults.events)
+            }
+        }
     }
 
     @IBAction func viewButtonPress(_ sender: UIButton) {
@@ -23,25 +35,24 @@ class ViewController: UIViewController {
     @IBAction func addButtonPress(_ sender: UIButton) {
         performSegue(withIdentifier: "toAdd", sender: self)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "toView") {
-            
-        }
-        if (segue.identifier == "toAdd"){
-            
+    @IBAction func debugPress(_ sender: UIButton) {
+        AppDefaults.events.append(Event(name: "school", red: 220, green: 110, blue: 6, day: .friday))
+        
+        let encoder = JSONEncoder()
+        if let data = try? encoder.encode(AppDefaults.events){
+            defaults.set(data, forKey: "myEvents")
+            print("added")
         }
     }
-    
 }
 
-enum Day {
+enum Day: Codable {
     case monday, tuesday, wednesday, thursday, friday, saturday, sunday
 }
 
-struct Event {
+struct Event: Codable {
     var name: String
-    var color: UIColor
+    var red, green, blue: CGFloat
     var day: Day
 }
 
