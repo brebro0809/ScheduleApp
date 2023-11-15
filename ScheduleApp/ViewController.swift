@@ -36,7 +36,8 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "toAdd", sender: self)
     }
     @IBAction func debugPress(_ sender: UIButton) {
-        AppDefaults.events.append(Event(name: "school", red: 220, green: 110, blue: 6, day: .friday))
+        AppDefaults.events = [Event]()
+        AppDefaults.events.append(Event(name: "school", red: 0.329, green: 0.82, blue: 0.502, day: .friday))
         
         let encoder = JSONEncoder()
         if let data = try? encoder.encode(AppDefaults.events){
