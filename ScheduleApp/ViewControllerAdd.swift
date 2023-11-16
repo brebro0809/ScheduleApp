@@ -18,12 +18,22 @@ class ViewControllerAdd: UIViewController {
         colorButton.changesSelectionAsPrimaryAction = true
             
         let optionClosure = {(action: UIAction) in
-            if(action.title == "Red"){
+            switch action.title {
+            case "Red":
                 self.onRed()
+            case "Blue":
+                self.onBlue()
+            case "Gree":
+                self.onGreen()
+            case "Purple":
+                self.onPurple()
+            default:
+                self.view.backgroundColor = UIColor.white
             }
         }
             
         colorButton.menu = UIMenu(children: [
+            UIAction(title: "White", state: .on, handler: optionClosure),
             UIAction(title: "Red", state: .on, handler: optionClosure),
             UIAction(title: "Blue", handler: optionClosure),
             UIAction(title: "Green", handler: optionClosure),
@@ -32,8 +42,19 @@ class ViewControllerAdd: UIViewController {
     }
     
     func onRed() {
-        view.backgroundColor = UIColor(red: 0.329, green: 0.82, blue: 0.502, alpha: 1)
+        view.backgroundColor = UIColor(red: 0.902, green: 0.388, blue: 0.388, alpha: 1)
     }
     
+    func onBlue() {
+        view.backgroundColor = UIColor(red: 0.478, green: 0.573, blue: 1, alpha: 1)
+    }
+    
+    func onGreen() {
+        
+    }
+    
+    func onPurple() {
+        
+    }
 
 }
