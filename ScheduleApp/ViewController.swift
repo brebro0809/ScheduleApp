@@ -25,6 +25,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     let defaults = UserDefaults.standard
     
+
     @IBOutlet weak var table: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +48,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 print(AppDefaults.events)
             }
         }
+        addButton.backgroundColor = .clear
+        addButton.layer.cornerRadius = 5
+        addButton.layer.borderWidth = 1
+        addButton.layer.borderColor = UIColor.black.cgColor
     }
 
     @IBAction func viewButtonPress(_ sender: UIButton) {
