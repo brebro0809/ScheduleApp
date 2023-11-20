@@ -11,17 +11,35 @@ class AppDefaults {
     static var events = [Event]()
 }
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        AppDefaults.events.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = table.dequeueReusableCell(withIdentifier: "myCell")!
+        cell.textLabel?.text = AppDefaults.events[indexPath.row].name
+        return cell
+    }
     
     let defaults = UserDefaults.standard
     
-    @IBOutlet weak var viewButton: UIButton!
-    @IBOutlet weak var addButton: UIButton!
+
+    @IBOutlet weak var table: UITableView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        table.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //pony
+        
+        table.dataSource = self
+        table.delegate = self
+        
         let decoder = JSONDecoder()
         if let data = defaults.data(forKey: "myEvents") {
             if let decoded = try? decoder.decode([Event].self, from: data){

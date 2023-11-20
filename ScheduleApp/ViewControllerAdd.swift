@@ -15,7 +15,9 @@ class ViewControllerAdd: UIViewController {
     @IBOutlet weak var dayButton: UIButton!
     @IBOutlet weak var nameInput: UITextField!
     
-    var red, green, blue: CGFloat!
+    var red = 1.0
+    var green = 1.0
+    var blue = 1.0
     var currentDay = Day.monday
     
     override func viewDidLoad() {
