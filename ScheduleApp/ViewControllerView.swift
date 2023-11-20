@@ -12,6 +12,7 @@ class ViewControllerView: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var sortButton: UIButton!
+    let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,18 @@ class ViewControllerView: UIViewController, UITableViewDelegate, UITableViewData
         let blue = AppDefaults.events[indexPath.row].blue
         cell.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            AppDefaults.events.remove(at: indexPath.row)
+            let encoder = JSONEncoder()
+            if let data = try? encoder.encode(AppDefaults.events){
+                userDefaults.set(data, forKey: "myEvents")
+            }
+            table.deleteRows(at: [indexPath], with: .fade)
+            table.reloadData()
+        }
     }
 
 }
