@@ -15,6 +15,9 @@ class ViewController: UIViewController {
     
     let defaults = UserDefaults.standard
     
+    @IBOutlet weak var viewButton: UIButton!
+    @IBOutlet weak var addButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -27,6 +30,10 @@ class ViewController: UIViewController {
                 print(AppDefaults.events)
             }
         }
+        addButton.backgroundColor = .clear
+        addButton.layer.cornerRadius = 5
+        addButton.layer.borderWidth = 1
+        addButton.layer.borderColor = UIColor.black.cgColor
     }
 
     @IBAction func viewButtonPress(_ sender: UIButton) {
