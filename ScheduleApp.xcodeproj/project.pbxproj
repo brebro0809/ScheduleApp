@@ -19,6 +19,7 @@
 		180882CC2B027FE100593AD2 /* ScheduleAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180882CB2B027FE100593AD2 /* ScheduleAppUITestsLaunchTests.swift */; };
 		180882D92B02808400593AD2 /* ViewControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180882D82B02808400593AD2 /* ViewControllerView.swift */; };
 		180882DB2B02808D00593AD2 /* ViewControllerAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180882DA2B02808D00593AD2 /* ViewControllerAdd.swift */; };
+		182B2E112B0D00BA00CBF4FE /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B2E102B0D00BA00CBF4FE /* DayCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		180882CB2B027FE100593AD2 /* ScheduleAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		180882D82B02808400593AD2 /* ViewControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerView.swift; sourceTree = "<group>"; };
 		180882DA2B02808D00593AD2 /* ViewControllerAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAdd.swift; sourceTree = "<group>"; };
+		182B2E102B0D00BA00CBF4FE /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		180882992B027FDF00593AD2 = {
 			isa = PBXGroup;
 			children = (
+				182B2E102B0D00BA00CBF4FE /* DayCell.swift */,
 				180882A42B027FDF00593AD2 /* ScheduleApp */,
 				180882BE2B027FE100593AD2 /* ScheduleAppTests */,
 				180882C82B027FE100593AD2 /* ScheduleAppUITests */,
@@ -270,6 +273,7 @@
 				180882AA2B027FDF00593AD2 /* ViewController.swift in Sources */,
 				180882A62B027FDF00593AD2 /* AppDelegate.swift in Sources */,
 				180882D92B02808400593AD2 /* ViewControllerView.swift in Sources */,
+				182B2E112B0D00BA00CBF4FE /* DayCell.swift in Sources */,
 				180882B02B027FDF00593AD2 /* ScheduleApp.xcdatamodeld in Sources */,
 				180882DB2B02808D00593AD2 /* ViewControllerAdd.swift in Sources */,
 				180882A82B027FDF00593AD2 /* SceneDelegate.swift in Sources */,
