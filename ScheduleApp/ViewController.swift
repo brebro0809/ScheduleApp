@@ -9,6 +9,7 @@ import UIKit
 
 class AppDefaults {
     static var events = [Event]()
+    static var currentDay = Day.monday
 }
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -18,15 +19,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = table.dequeueReusableCell(withIdentifier: "myCell")!
-        cell.textLabel?.text = AppDefaults.events[indexPath.row].name
+        let cell = table.dequeueReusableCell(withIdentifier: "myCell")! as! DayCell
+        cell.dayLabel.text = AppDefaults.events[indexPath.row].name
+        cell.checkLabel.isHidden = !AppDefaults.events[indexPath.row].isChecked
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: false)
+        AppDefaults.events[indexPath.row].isChecked = !AppDefaults.events[indexPath.row].isChecked
+        let encoder = JSONEncoder()
+        if let data = try? encoder.encode(AppDefaults.events){
+            defaults.set(data, forKey: "myEvents")
+        }
+        table.reloadData()
     }
     
     let defaults = UserDefaults.standard
     
 
     @IBOutlet weak var table: UITableView!
+    @IBOutlet weak var dayLabel: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
         table.reloadData()
@@ -48,12 +62,60 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 print(AppDefaults.events)
             }
         }
-        addButton.backgroundColor = .clear
-        addButton.layer.cornerRadius = 5
-        addButton.layer.borderWidth = 1
-        addButton.layer.borderColor = UIColor.black.cgColor
+    
+        if let data = defaults.data(forKey: "myDay") {
+            if let decoded = try? decoder.decode(Day.self, from: data){
+                AppDefaults.currentDay = decoded
+            }
+        }
+        switch AppDefaults.currentDay{
+        case .monday:
+            dayLabel.text = "Monday"
+        case .tuesday:
+            dayLabel.text = "Tuesday"
+        case .wednesday:
+            dayLabel.text = "Wednesday"
+        case .thursday:
+            dayLabel.text = "Thursday"
+        case .friday:
+            dayLabel.text = "Friday"
+        case .saturday:
+            dayLabel.text = "Saturday"
+        case .sunday:
+            dayLabel.text = "Sunday"
+        }
     }
-
+    
+    @IBAction func nextPress(_ sender: UIButton) {
+        switch AppDefaults.currentDay{
+        case .monday:
+            AppDefaults.currentDay = .tuesday
+            dayLabel.text = "Tuesday"
+        case .tuesday:
+            AppDefaults.currentDay = .wednesday
+            dayLabel.text = "Wednesday"
+        case .wednesday:
+            AppDefaults.currentDay = .thursday
+            dayLabel.text = "Thursday"
+        case .thursday:
+            AppDefaults.currentDay = .friday
+            dayLabel.text = "Friday"
+        case .friday:
+            AppDefaults.currentDay = .saturday
+            dayLabel.text = "Saturday"
+        case .saturday:
+            AppDefaults.currentDay = .sunday
+            dayLabel.text = "Sunday"
+        case .sunday:
+            AppDefaults.currentDay = .monday
+            dayLabel.text = "Monday"
+        }
+        let encoder = JSONEncoder()
+        if let data = try? encoder.encode(AppDefaults.currentDay){
+            defaults.set(data, forKey: "myDay")
+        }
+    }
+    
     @IBAction func viewButtonPress(_ sender: UIButton) {
         performSegue(withIdentifier: "toView", sender: self)
     }
@@ -68,6 +130,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             defaults.set(data, forKey: "myEvents")
             print("added")
         }
+        table.reloadData()
     }
 }
 
@@ -79,5 +142,6 @@ struct Event: Codable {
     var name: String
     var red, green, blue: CGFloat
     var day: Day
+    var isChecked: Bool
 }
 

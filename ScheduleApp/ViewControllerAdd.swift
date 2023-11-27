@@ -89,7 +89,7 @@ class ViewControllerAdd: UIViewController {
     
     @IBAction func addPress(_ sender: UIButton) {
         if (nameInput.text != "") {
-            AppDefaults.events.append(Event(name: nameInput.text!, red: self.red, green: self.green, blue: self.blue, day: currentDay))
+            AppDefaults.events.append(Event(name: nameInput.text!, red: self.red, green: self.green, blue: self.blue, day: currentDay, isChecked: false))
             let encoder = JSONEncoder()
             if let data = try? encoder.encode(AppDefaults.events){
                 userDefaults.set(data, forKey: "myEvents")
