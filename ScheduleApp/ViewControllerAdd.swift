@@ -98,10 +98,10 @@ class ViewControllerAdd: UIViewController {
     }
     
     func onRed() {
-        view.backgroundColor = UIColor(red: 0.902, green: 0.388, blue: 0.388, alpha: 1)
-        self.red = 0.902
-        self.green = 0.388
-        self.blue = 0.388
+        view.backgroundColor = UIColor(red: 0.922, green: 0.18, blue: 0.212, alpha: 1)
+        self.red = 0.922
+        self.green = 0.18
+        self.blue = 0.212
     }
     
     func onBlue() {
