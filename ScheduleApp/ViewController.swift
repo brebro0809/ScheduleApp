@@ -44,13 +44,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
         AppDefaults.events[indexPath.row].isChecked = !AppDefaults.events[indexPath.row].isChecked
+        print("test")
         let encoder = JSONEncoder()
         if let data = try? encoder.encode(AppDefaults.events){
             defaults.set(data, forKey: "myEvents")
         }
         table.reloadData()
+        tableView.deselectRow(at: indexPath, animated: false)
     }
     
     let defaults = UserDefaults.standard
@@ -150,6 +151,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print("added")
         }
         table.reloadData()
+    }
+    
+    @IBAction func clearButtonPress(_ sender: UIButton) {
+        AppDefaults.events = AppDefaults.events.filter { !$0.isChecked }
+        table.reloadData()
+        let encoder = JSONEncoder()
+        if let data = try? encoder.encode(AppDefaults.events){
+            defaults.set(data, forKey: "myEvents")
+            print("added")
+        }
     }
 }
 
