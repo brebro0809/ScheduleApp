@@ -15,18 +15,35 @@ class AppDefaults {
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        AppDefaults.events.count
+        var count = 0
+        for event in AppDefaults.events{
+            if(event.day == AppDefaults.currentDay){
+                count += 1
+            }
+        }
+        return count
     }
     
+    var pointer = 0
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if (indexPath.row == 0){
+            pointer = 0
+        }
+        for i in pointer ... AppDefaults.events.count {
+            if AppDefaults.events[i].day == AppDefaults.currentDay{
+                pointer = i
+                break
+            }
+        }
+        
         let cell = table.dequeueReusableCell(withIdentifier: "myCell")! as! DayCell
-        cell.dayLabel.text = AppDefaults.events[indexPath.row].name
-        cell.checkLabel.isHidden = !AppDefaults.events[indexPath.row].isChecked
+        cell.dayLabel.text = AppDefaults.events[pointer].name
+        cell.checkLabel.isHidden = !AppDefaults.events[pointer].isChecked
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         tableView.deselectRow(at: indexPath, animated: false)
         AppDefaults.events[indexPath.row].isChecked = !AppDefaults.events[indexPath.row].isChecked
         let encoder = JSONEncoder()
@@ -68,6 +85,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 AppDefaults.currentDay = decoded
             }
         }
+        table.reloadData()
         switch AppDefaults.currentDay{
         case .monday:
             dayLabel.text = "Monday"
@@ -110,6 +128,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             AppDefaults.currentDay = .monday
             dayLabel.text = "Monday"
         }
+        table.reloadData()
         let encoder = JSONEncoder()
         if let data = try? encoder.encode(AppDefaults.currentDay){
             defaults.set(data, forKey: "myDay")
