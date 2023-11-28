@@ -14,6 +14,7 @@ class ViewControllerAdd: UIViewController {
     @IBOutlet weak var colorButton: UIButton!
     @IBOutlet weak var dayButton: UIButton!
     @IBOutlet weak var nameInput: UITextField!
+    @IBOutlet weak var addButton: UIButton!
     
     var red = 1.0
     var green = 1.0
@@ -98,10 +99,13 @@ class ViewControllerAdd: UIViewController {
     }
     
     func onRed() {
-        view.backgroundColor = UIColor(red: 0.922, green: 0.18, blue: 0.212, alpha: 1)
-        self.red = 0.922
-        self.green = 0.18
-        self.blue = 0.212
+        let red = UIColor(red: 1, green: 0.522, blue: 0.522, alpha: 1)
+        dayButton.backgroundColor = red
+        colorButton.backgroundColor = red
+        addButton.backgroundColor = red
+        self.red = 1
+        self.green = 0.522
+        self.blue = 0.522
     }
     
     func onBlue() {
