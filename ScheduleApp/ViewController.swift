@@ -14,10 +14,12 @@ class AppDefaults {
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var currentDayList: [Int : Int] = [:]
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count = 0
         for event in AppDefaults.events{
-            if(event.day == AppDefaults.currentDay){
+            if(event.day == AppDefaults.currentDay) {
                 count += 1
             }
         }
@@ -27,16 +29,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var pointer = 0
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        pointer += 1
+        
         if (indexPath.row == 0){
             pointer = 0
+            currentDayList = [:]
         }
-        for i in pointer ... AppDefaults.events.count {
-            if AppDefaults.events[i].day == AppDefaults.currentDay{
+        
+        for i in pointer ..< AppDefaults.events.count {
+            if AppDefaults.events[i].day == AppDefaults.currentDay {
                 pointer = i
                 break
             }
         }
-        
+        currentDayList[indexPath.row] = pointer
         let cell = table.dequeueReusableCell(withIdentifier: "myCell")! as! DayCell
         cell.dayLabel.text = AppDefaults.events[pointer].name
         cell.checkLabel.isHidden = !AppDefaults.events[pointer].isChecked
@@ -44,14 +50,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        AppDefaults.events[indexPath.row].isChecked = !AppDefaults.events[indexPath.row].isChecked
-        print("test")
+        print(AppDefaults.events[indexPath.row].isChecked)
+        let index = currentDayList[indexPath.row]
+        AppDefaults.events[index!].isChecked = !AppDefaults.events[index!].isChecked
         let encoder = JSONEncoder()
         if let data = try? encoder.encode(AppDefaults.events){
             defaults.set(data, forKey: "myEvents")
         }
         table.reloadData()
         tableView.deselectRow(at: indexPath, animated: false)
+        print(AppDefaults.events[indexPath.row].isChecked)
     }
     
     let defaults = UserDefaults.standard
