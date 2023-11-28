@@ -113,7 +113,6 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Clear Checked Events"/>
                                 <connections>
                                     <action selector="clearButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="101-j1-ppe"/>
-                                    <action selector="nextPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Lv-jR-k8P"/>
                                 </connections>
                             </button>
                         </subviews>
