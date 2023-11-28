@@ -21,7 +21,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="1" green="0.65676480596155873" blue="0.48440275980821745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="View"/>
+                                <buttonConfiguration key="configuration" style="filled" title="View">
+                                    <color key="baseBackgroundColor" red="1" green="0.65676480599999998" blue="0.48440275980000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="viewButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gBn-LQ-bpv"/>
                                 </connections>
@@ -67,7 +69,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="1" green="0.65676480599999998" blue="0.48440275980000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Add"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add">
+                                    <color key="baseBackgroundColor" red="1" green="0.65676480599999998" blue="0.48440275980000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="addButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iyn-q6-Got"/>
                                 </connections>
@@ -84,18 +88,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="1" green="0.65676480599999998" blue="0.48440275980000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Next Day"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Next Day">
+                                    <color key="baseBackgroundColor" red="1" green="0.65676480599999998" blue="0.48440275980000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="nextPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AVh-Px-PXP"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xsw-9v-XVF">
-                                <rect key="frame" x="302" y="807" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Debug"/>
-                                <connections>
-                                    <action selector="debugPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nYC-rn-glt"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Schedule App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ooW-5c-tRy">
@@ -110,7 +107,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="1" green="0.65676480599999998" blue="0.48440275980000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Clear Checked Events"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Clear Checked Events">
+                                    <color key="baseBackgroundColor" red="1" green="0.65676480599999998" blue="0.48440275980000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="clearButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="101-j1-ppe"/>
                                 </connections>
@@ -223,7 +222,9 @@
                                             </children>
                                         </menu>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Button">
+                                            <color key="baseBackgroundColor" red="1" green="0.65676480599999998" blue="0.48440275980000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcL-ju-rlx">
                                         <rect key="frame" x="0.0" y="240.66666666666669" width="343" height="44"/>
@@ -235,13 +236,17 @@
                                             </children>
                                         </menu>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Button">
+                                            <color key="baseBackgroundColor" red="1" green="0.65676480599999998" blue="0.48440275980000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mEg-8j-Hog">
                                         <rect key="frame" x="0.0" y="320.66666666666663" width="343" height="44.333333333333314"/>
                                         <color key="tintColor" red="1" green="0.65676480599999998" blue="0.48440275980000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Add"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Add">
+                                            <color key="baseBackgroundColor" red="1" green="0.65676480599999998" blue="0.48440275980000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="addPress:" destination="Nll-dE-tjU" eventType="touchUpInside" id="vKM-dO-Zhg"/>
                                         </connections>
