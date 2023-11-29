@@ -99,7 +99,7 @@ class ViewControllerAdd: UIViewController {
     }
     
     func onRed() {
-        let red = UIColor(red: 1, green: 0.522, blue: 0.522, alpha: 1)
+        let red = UIColor(red: 1, green: 0.4, blue: 0.4, alpha: 1)
         dayButton.backgroundColor = red
         colorButton.backgroundColor = red
         addButton.backgroundColor = red
