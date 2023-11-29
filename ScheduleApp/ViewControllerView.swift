@@ -41,7 +41,7 @@ class ViewControllerView: UIViewController, UITableViewDelegate, UITableViewData
         let red = AppDefaults.events[indexPath.row].red
         let green = AppDefaults.events[indexPath.row].green
         let blue = AppDefaults.events[indexPath.row].blue
-        if red != 1 && green != 1 &&  blue != 1 {
+        if red != 1 || green != 1 || blue != 1 {
             cell.textLabel!.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell.detailTextLabel!.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         } else {
