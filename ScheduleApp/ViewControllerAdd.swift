@@ -23,6 +23,16 @@ class ViewControllerAdd: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.dayButton.backgroundColor = UIColor.white
+        self.colorButton.backgroundColor = UIColor.white
+        self.addButton.backgroundColor = UIColor.white
+        self.dayButton.setTitleColor(UIColor.black, for: .normal)
+        self.colorButton.setTitleColor(UIColor.black, for: .normal)
+        self.addButton.setTitleColor(UIColor.black, for: .normal)
+        self.red = 1
+        self.green = 1
+        self.blue = 1
 
         colorButton.showsMenuAsPrimaryAction = true
         colorButton.changesSelectionAsPrimaryAction = true
@@ -38,10 +48,16 @@ class ViewControllerAdd: UIViewController {
             case "Purple":
                 self.onPurple()
             default:
-                self.view.backgroundColor = UIColor.white
+                self.dayButton.backgroundColor = UIColor.white
+                self.colorButton.backgroundColor = UIColor.white
+                self.addButton.backgroundColor = UIColor.white
+                self.dayButton.setTitleColor(UIColor.black, for: .normal)
+                self.colorButton.setTitleColor(UIColor.black, for: .normal)
+                self.addButton.setTitleColor(UIColor.black, for: .normal)
                 self.red = 1
                 self.green = 1
                 self.blue = 1
+
             }
         }
             
@@ -104,30 +120,51 @@ class ViewControllerAdd: UIViewController {
         dayButton.backgroundColor = red
         colorButton.backgroundColor = red
         addButton.backgroundColor = red
+        self.dayButton.setTitleColor(UIColor.white, for: .normal)
+        self.colorButton.setTitleColor(UIColor.white, for: .normal)
+        self.addButton.setTitleColor(UIColor.white, for: .normal)
         self.red = 1
         self.green = 0.522
         self.blue = 0.522
     }
     
     func onBlue() {
-        view.backgroundColor = UIColor(red: 0.341, green: 0.576, blue: 0.89, alpha: 1)
-        self.red = 0.341
-        self.green = 0.576
-        self.blue = 0.89
+        let blue = UIColor(red: 0.459, green: 0.69, blue: 1, alpha: 1)
+        dayButton.backgroundColor = blue
+        colorButton.backgroundColor = blue
+        addButton.backgroundColor = blue
+        self.dayButton.setTitleColor(UIColor.white, for: .normal)
+        self.colorButton.setTitleColor(UIColor.white, for: .normal)
+        self.addButton.setTitleColor(UIColor.white, for: .normal)
+        self.red = 0.459
+        self.green = 0.69
+        self.blue = 1
     }
     
     func onGreen() {
-        view.backgroundColor = UIColor(red: 0.341, green: 0.89, blue: 0.435, alpha: 1)
-        self.red = 0.341
-        self.green = 0.89
-        self.blue = 0.435
+        let green = UIColor(red: 0.475, green: 0.769, blue: 0.486, alpha: 1)
+        dayButton.backgroundColor = green
+        colorButton.backgroundColor = green
+        addButton.backgroundColor = green
+        self.dayButton.setTitleColor(UIColor.white, for: .normal)
+        self.colorButton.setTitleColor(UIColor.white, for: .normal)
+        self.addButton.setTitleColor(UIColor.white, for: .normal)
+        self.red = 0.475
+        self.green = 0.769
+        self.blue = 0.486
     }
     
     func onPurple() {
-        view.backgroundColor = UIColor(red: 0.616, green: 0.341, blue: 0.89, alpha: 1)
-        self.red = 0.616
-        self.green = 0.341
-        self.blue = 0.89
+        let purple = UIColor(red: 0.706, green: 0.51, blue: 0.859, alpha: 1)
+        dayButton.backgroundColor = purple
+        colorButton.backgroundColor = purple
+        addButton.backgroundColor = purple
+        self.dayButton.setTitleColor(UIColor.white, for: .normal)
+        self.colorButton.setTitleColor(UIColor.white, for: .normal)
+        self.addButton.setTitleColor(UIColor.white, for: .normal)
+        self.red = 0.706
+        self.green = 0.51
+        self.blue = 0.859
     }
 
 }
