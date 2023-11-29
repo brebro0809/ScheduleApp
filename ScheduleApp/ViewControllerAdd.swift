@@ -95,6 +95,7 @@ class ViewControllerAdd: UIViewController {
             if let data = try? encoder.encode(AppDefaults.events){
                 userDefaults.set(data, forKey: "myEvents")
             }
+            nameInput.text = ""
         }
     }
     

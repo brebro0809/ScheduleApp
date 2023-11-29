@@ -144,6 +144,39 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    @IBAction func lastAction(_ sender: Any) {
+        switch AppDefaults.currentDay{
+        case .monday:
+            AppDefaults.currentDay = .sunday
+            dayLabel.text = "Sunday"
+        case .tuesday:
+            AppDefaults.currentDay = .monday
+            dayLabel.text = "Monday"
+        case .wednesday:
+            AppDefaults.currentDay = .tuesday
+            dayLabel.text = "Tuesday"
+        case .thursday:
+            AppDefaults.currentDay = .wednesday
+            dayLabel.text = "Wednesday"
+        case .friday:
+            AppDefaults.currentDay = .thursday
+            dayLabel.text = "Thursday"
+        case .saturday:
+            AppDefaults.currentDay = .friday
+            dayLabel.text = "Friday"
+        case .sunday:
+            AppDefaults.currentDay = .sunday
+            dayLabel.text = "Saturday"
+        }
+        table.reloadData()
+        let encoder = JSONEncoder()
+        if let data = try? encoder.encode(AppDefaults.currentDay){
+            defaults.set(data, forKey: "myDay")
+        }
+        
+        
+    }
+    
     @IBAction func viewButtonPress(_ sender: UIButton) {
         performSegue(withIdentifier: "toView", sender: self)
     }
