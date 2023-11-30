@@ -24,6 +24,9 @@ class ViewControllerAdd: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
         self.dayButton.backgroundColor = UIColor.white
         self.colorButton.backgroundColor = UIColor.white
         self.addButton.backgroundColor = UIColor.white
@@ -165,6 +168,11 @@ class ViewControllerAdd: UIViewController {
         self.red = 0.706
         self.green = 0.51
         self.blue = 0.859
+    }
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
 
 }
